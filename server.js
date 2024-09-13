@@ -15,7 +15,7 @@ dotenv.config();
 
 const frontendUrl =
   "https://placesreact.netlify.app" ||
-  "http:localhost:4000" ||
+  "http://localhost:5173" ||
   "https://placeappfrontend.onrender.com";
 app.use(cors({ origin: frontendUrl }));
 
