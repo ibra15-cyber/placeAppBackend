@@ -13,7 +13,7 @@ app.use(express.json());
 
 dotenv.config();
 
-const frontendUrl = "http:localhost:4000" || "https://placesreact.netlify.app";
+const frontendUrl = "https://placesreact.netlify.app" || "http:localhost:4000";
 app.use(cors({ origin: frontendUrl }));
 
 app.get("/api/keys/google", isAuth, (req, res) => {
