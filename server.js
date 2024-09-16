@@ -13,7 +13,13 @@ app.use(express.json());
 
 dotenv.config();
 
-app.use(cors({ origin: process.env.FRONT_END_URL }));
+app.use(
+  cors({
+    origin: process.env.FRONT_END_URL,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.get("/api/keys/google", isAuth, (req, res) => {
   res.send({ key: process.env.GOOGLE_API_KEY || "" });
