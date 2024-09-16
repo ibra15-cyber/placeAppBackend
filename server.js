@@ -13,11 +13,7 @@ app.use(express.json());
 
 dotenv.config();
 
-const frontendUrl =
-  "https://placesreact.netlify.app" ||
-  "http://localhost:5173" ||
-  "https://placeappfrontend.onrender.com";
-app.use(cors({ origin: frontendUrl }));
+app.use(cors({ origin: process.env.FRONT_END_URL }));
 
 app.get("/api/keys/google", isAuth, (req, res) => {
   res.send({ key: process.env.GOOGLE_API_KEY || "" });
