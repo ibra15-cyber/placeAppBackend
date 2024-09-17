@@ -1,6 +1,6 @@
 import express from "express";
 import Place from "../model/placeModel.js";
-import { getCoordinatesFromAddress } from "../util.js";
+import { getCoordinatesFromAddress, isAuth } from "../util.js";
 
 const placeRouter = express.Router();
 
@@ -33,7 +33,7 @@ placeRouter.get("/user/:id", async (req, res) => {
 });
 
 //create place
-placeRouter.post("/", async (req, res) => {
+placeRouter.post("/", isAuth, async (req, res) => {
   const coordinates = await getCoordinatesFromAddress(req.body.address);
   const newPlace = new Place({
     title: req.body.title,
