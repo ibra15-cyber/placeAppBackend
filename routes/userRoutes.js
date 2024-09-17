@@ -18,7 +18,7 @@ userRouter.post("/signin", async (req, res) => {
   let foundUser;
   try {
     foundUser = await User.findOne({ email });
-    console.log(foundUser.password);
+    // console.log(foundUser.password);
   } catch (err) {
     console.log("user not found");
   }

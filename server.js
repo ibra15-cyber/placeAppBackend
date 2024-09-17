@@ -21,7 +21,7 @@ app.use(
   })
 );
 
-app.get("/api/keys/google", isAuth, (req, res) => {
+app.get("/api/keys/google", (req, res) => {
   res.send({ key: process.env.GOOGLE_API_KEY || "" });
 });
 
@@ -35,7 +35,7 @@ app.listen(port);
 const mongoUrl = process.env.MONGODB_URI || process.env.MONGODB_URI_LOCAL;
 mongoose
   .connect(mongoUrl)
-  .then(() => console.log(`connection established to ${mongoUrl}`))
+  .then(() => console.log(`connection established to mongodb`))
   .catch((err) => {
     console.log(err.message);
   });
