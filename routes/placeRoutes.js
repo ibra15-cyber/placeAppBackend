@@ -33,7 +33,7 @@ placeRouter.get("/user/:id", async (req, res) => {
 });
 
 //create place
-placeRouter.post("/", isAuth, async (req, res) => {
+placeRouter.post("/", async (req, res) => {
   const coordinates = await getCoordinatesFromAddress(req.body.address);
   const newPlace = new Place({
     title: req.body.title,
